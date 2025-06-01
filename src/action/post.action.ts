@@ -146,7 +146,7 @@ export async function toggleLike(postId: string) {
 }
 
 //butuh isi komen nya serta post mana(id post mana) yang di komen user
-export async function createComment(content: string, postId: string) {
+export async function createComment(postId: string, content: string) {
   try {
     //seperti biasa cek auth/hak syarat user bisa komen hanya jika kedaftar? getDBuserId : return
 
