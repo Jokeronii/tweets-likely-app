@@ -62,8 +62,8 @@ export default function PostCard({ post, dbUserId }: { post: Post; dbUserId: str
     try {
       setIsDeleting(true);
       const result = await deletePost(post.id);
-      if (result.success) toast.success('Post deleted successfully');
-      else throw new Error(result.error);
+      if (result?.success) toast.success('Post deleted successfully');
+      else throw new Error(result?.error);
     } catch (error) {
       toast.error('Failed to delete post');
     } finally {
