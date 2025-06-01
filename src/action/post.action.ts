@@ -201,18 +201,12 @@ export async function createComment(content: string, postId: string) {
   }
 }
 
-/**
- * Delete a Post.
- * @param {string} postId - ID of the Post to delete.
- * @returns {Promise<{ success: boolean, error?: string }>} - A promise that resolves to an object with a success boolean and an optional error string.
- * @throws {Error} - If the Post is not found, or if the user does not have permission to delete the Post.
- */
 export async function deletePost(postId: string) {
   try {
     //cek userId
     const userId = await getDbUserId();
 
-    if (!userId) return { success: false, error: 'unauthenticated' };
+    if (!userId) return;
 
     //cek post is exist/ ada ngga?
     const post = await prisma.post.findUnique({
